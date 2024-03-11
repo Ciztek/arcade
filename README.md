@@ -25,7 +25,7 @@ This will generate the documentation in the specified output directory (usually 
 The main page of the documentation is usually index.html in the html directory. To view it, open it with a web browser. If you're using a Linux machine, you can use the following command:
 
 ```bash
-xdg-open doc/html/index.html
+xdg-open docs/html/index.html
 ```
 
 This will open the main page of the documentation in your default web browser.
