@@ -80,3 +80,6 @@ int main( void )
 
 	return 0;
 }
+
+// how to compile:
+// g++ test_opengl.cpp -o test_opengl -lGL -lGLEW -lglfw 
