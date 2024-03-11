@@ -10,6 +10,9 @@ lib
 # Build object
 .build
 
+# Documentation
+docs
+
 # Object file
 *.[oda]
 *.gc*
