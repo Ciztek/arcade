@@ -20,6 +20,8 @@
             clang
 
             gnumake
+            ncurses
+            SDL2
 
             valgrind
 
