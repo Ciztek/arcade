@@ -1,0 +1,15 @@
+# Binary Object
+libasm.so
+unittests
+main
+
+# Build object
+.build
+
+# Object file
+*.[oda]
+*.gc*
+
+# Other file
+.fast
+override.mk
