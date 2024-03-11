@@ -1,0 +1,45 @@
+##
+## EPITECH PROJECT, 2024
+## arcade
+## File description:
+## base.mk
+##
+
+%.cpp:
+
+BINARIES := $(NAME) $(NAME_DEBUG) $(NAME_ANGRY) $(UNIT)
+BINARIES += $(NAME_PACMAN) $(NAME_PACMAN_DEBUG) $(NAME_PACMAN_ANGRY)
+BINARIES += $(NAME_SNAKE) $(NAME_SNAKE_DEBUG) $(NAME_SNAKE_ANGRY)
+BINARIES += $(NAME_NCURSES) $(NAME_NCURSES_DEBUG) $(NAME_NCURSES_ANGRY)
+BINARIES += $(NAME_SDL) $(NAME_SDL_DEBUG) $(NAME_SDL_ANGRY)
+BINARIES += $(NAME_OPENGL) $(NAME_OPENGL_DEBUG) $(NAME_OPENGL_ANGRY)
+
+all: $(NAME) $(NAME_PACMAN) $(NAME_SNAKE) $(NAME_NCURSES) $(NAME_SDL) \
+	$(NAME_OPENGL)
+
+core: $(NAME)
+
+games: $(NAME_PACMAN) $(NAME_SNAKE)
+
+graphicals: $(NAME_NCURSES) $(NAME_SDL) $(NAME_OPENGL)
+
+.PHONY: all core games graphicals
+
+clean:
+	$Q $(RM) -r $(BUILD_DIR)
+
+fclean:
+	$Q $(RM) $(BINARIES)
+	$Q $(RM) -r $(LIB_DIR)
+	$Q $(RM) -r $(BUILD_DIR)
+
+.PHONY: clean fclean
+
+re: fclean all
+
+.PHONY: re
+.PARALLEL: re
+
+bundle: $(BINARIES)
+
+.PHONY: bundle
