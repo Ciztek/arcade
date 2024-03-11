@@ -1,7 +1,11 @@
 # Binary Object
-libasm.so
+arcade
+debug
+angry
 unittests
-main
+
+# Library folder
+lib
 
 # Build object
 .build
