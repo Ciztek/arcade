@@ -5,8 +5,6 @@
 ## debug.mk
 ##
 
-%.cpp:
-
 BUILD_DIR ?= .build
 LIB_DIR ?= lib
 

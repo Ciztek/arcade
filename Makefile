@@ -16,6 +16,9 @@ endif
 # ↓ Remove builtin rules
 .SUFFIXES:
 
+# ↓ Default target
+all:
+
 # ↓ Autocompletion hotfix
 core: ## Compile arcade binary
 graphicals: ## Compile graphical module binaries
@@ -40,7 +43,7 @@ help: ## Show this help
 help:
 	@ cat $(firstword $(MAKEFILE_LIST)) \
   	| grep -E "^\w+:\s##"               \
-  	| sed "s/: ## /\t\t/g"
+  	| sed "s/: ## /\t\t/g" | sort
 
 .PHONY: help
 
