@@ -29,3 +29,19 @@ xdg-open docs/html/index.html
 ```
 
 This will open the main page of the documentation in your default web browser.
+
+## man pages
+
+To use the man pages you first need to generate the documentation using the following command:
+
+```bash
+make docs
+```
+
+Then you need to add the directory containing the man pages to your MANPATH environment variable.
+
+you can do it like this:
+
+```shell
+export MANPATH=$MANPATH:/path/to/the/man/pages
+```

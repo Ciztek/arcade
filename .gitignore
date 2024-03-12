@@ -21,3 +21,4 @@ docs.pdf
 # Other file
 .fast
 override.mk
+.warn_doc
