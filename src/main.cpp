@@ -13,6 +13,7 @@
 
 #include "DLLoader.hpp"
 #include "IDisplayModule.hpp"
+#include "IGameModule.hpp"
 
 void iterFiles(const char *path, void (*cb)(const char *))
 {
@@ -35,7 +36,7 @@ void iterFiles(const char *path, void (*cb)(const char *))
 int main(void)
 {
     try {
-        iterFiles("./lib", [](const char *path) {
+        iterFiles("./lib", [](const char *path) -> void {
             DLLoader<IDisplayModule> loader(path);
             IDisplayModule *module = loader.getInstance("entryPoint");
             module->init();

@@ -7,15 +7,15 @@
 
 #include <iostream>
 
-#include "IDisplayModule.hpp"
+#include "IGameModule.hpp"
 
-class Pacman : public IDisplayModule {
+class Pacman : public IGameModule {
     public:
         Pacman() {};
         ~Pacman() {};
         void init() override;
         void stop() override;
-        std::string const &getName() const override;
+        std::string const &getGame() const override;
 };
 
 void Pacman::init()
@@ -28,7 +28,7 @@ void Pacman::stop()
     std::cout << "[Pacman] Stop Pacman library..." << '\n';
 }
 
-std::string const &Pacman::getName() const
+std::string const &Pacman::getGame() const
 {
     static const std::string name = "Pacman";
     return name;

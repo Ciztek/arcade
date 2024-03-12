@@ -7,15 +7,14 @@
 
 #include <iostream>
 
-#include "IDisplayModule.hpp"
-
-class Snake : public IDisplayModule {
+#include "IGameModule.hpp"
+class Snake : public IGameModule {
     public:
         Snake() {};
         ~Snake() {};
         void init() override;
         void stop() override;
-        std::string const &getName() const override;
+        std::string const &getGame() const override;
 };
 
 void Snake::init()
@@ -28,7 +27,7 @@ void Snake::stop()
     std::cout << "[Snake] Stop Snake library..." << '\n';
 }
 
-std::string const &Snake::getName() const
+std::string const &Snake::getGame() const
 {
     static const std::string name = "Snake";
     return name;

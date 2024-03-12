@@ -26,7 +26,7 @@ class DLLoader {
         }
         T *getInstance(const char *symbol)
         {
-            T *(*entryPoint)() = reinterpret_cast<T *(*)()>(dlsym(_handle, symbol));
+            auto entryPoint = reinterpret_cast<T *(*)()>(dlsym(_handle, symbol));
             if (entryPoint == nullptr)
                 throw std::runtime_error(dlerror());
             return entryPoint();
