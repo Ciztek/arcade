@@ -5,7 +5,8 @@
 ## docs.mk
 ##
 
-docs: $(shell doxygen Doxyfile)
+docs: Doxyfile
+	doxygen Doxyfile
 
 .PHONY: docs
 
