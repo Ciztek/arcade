@@ -22,12 +22,16 @@
             gnumake
             ncurses
             SDL2
+            glfw
 
             valgrind
 
             criterion
             python3Packages.gcovr
             python311
+
+            doxygen
+            texlive.combined.scheme-full
           ];
         };
       });
