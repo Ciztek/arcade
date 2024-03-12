@@ -15,6 +15,12 @@
 #include "IDisplayModule.hpp"
 #include "IGameModule.hpp"
 
+/**
+ * @brief Iter on file within a directory and apply an action to it
+ *
+ * @param path Path to the directory within you will iterate
+ * @param cb Callback function to apply to each file that take the path as parameter and return void
+ */
 void iterFiles(const char *path, void (*cb)(const char *))
 {
     DIR *dir = opendir(path);
@@ -33,6 +39,11 @@ void iterFiles(const char *path, void (*cb)(const char *))
     closedir(dir);
 }
 
+/**
+ * @brief Main function of the program
+ *
+ * @return 0 if success, 84 if failure
+ */
 int main(void)
 {
     try {

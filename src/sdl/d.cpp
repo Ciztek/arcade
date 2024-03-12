@@ -9,33 +9,63 @@
 
 #include "IDisplayModule.hpp"
 
-class Sld : public IDisplayModule {
+class Sdl : public IDisplayModule {
     public:
-        Sld() {};
-        ~Sld() {};
+        /**
+         * @brief Construct a new Sld object
+         *
+         */
+        Sdl() {};
+
+        /**
+         * @brief Destroy the Sld object
+         *
+         */
+        ~Sdl() {};
+
+        /**
+         * @brief Initialize the display module
+         *
+         */
         void init() override;
+
+        /**
+         * @brief Stop the display module
+         *
+         */
         void stop() override;
+
+        /**
+         * @brief Get the Name of the object
+         *
+         * @return const std::& reference an std::string "Sdl"
+         */
         std::string const &getName() const override;
 };
 
-void Sld::init()
+void Sdl::init()
 {
-    std::cout << "[Sdl] Init Sld library..." << '\n';
+    std::cout << "[Sdl] Init Sdl library..." << '\n';
 }
 
-void Sld::stop()
+void Sdl::stop()
 {
-    std::cout << "[Sdl] Stop Sld library..." << '\n';
+    std::cout << "[Sdl] Stop Sdl library..." << '\n';
 }
 
-std::string const &Sld::getName() const
+std::string const &Sdl::getName() const
 {
-    static const std::string name = "Sld";
+    static const std::string name = "Sdl";
     return name;
 }
 
+/**
+ * @brief Return a new instance of the Sdl class
+ *
+ * @return Sdl* A new instance of the Sdl class
+ */
 extern "C"
-Sld *entryPoint()
+Sdl *entryPoint()
 {
-    return new Sld();
+    return new Sdl();
 }

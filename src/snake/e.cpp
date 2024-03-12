@@ -10,10 +10,35 @@
 #include "IGameModule.hpp"
 class Snake : public IGameModule {
     public:
+        /**
+         * @brief Construct a new Snake object
+         *
+         */
         Snake() {};
+
+        /**
+         * @brief Destroy the Snake object
+         *
+         */
         ~Snake() {};
+
+        /**
+         * @brief Initialize the display module
+         *
+         */
         void init() override;
+
+        /**
+         * @brief Stop the display module
+         *
+         */
         void stop() override;
+
+        /**
+         * @brief Get the Name of the object
+         *
+         * @return const std::& reference an std::string "Snake"
+         */
         std::string const &getGame() const override;
 };
 
@@ -33,6 +58,11 @@ std::string const &Snake::getGame() const
     return name;
 }
 
+/**
+ * @brief Return a new instance of the Snake class
+ *
+ * @return Snake* A new instance of the Snake class
+ */
 extern "C"
 Snake *entryPoint()
 {

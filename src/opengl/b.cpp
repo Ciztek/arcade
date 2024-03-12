@@ -11,10 +11,35 @@
 
 class OpenGL : public IDisplayModule {
     public:
+        /**
+         * @brief Construct a new OpenGL object
+         *
+         */
         OpenGL() {};
+
+        /**
+         * @brief Destroy the OpenGL object
+         *
+         */
         ~OpenGL() {};
+
+        /**
+         * @brief Initialize the display module
+         *
+         */
         void init() override;
+
+        /**
+         * @brief Stop the display module
+         *
+         */
         void stop() override;
+
+        /**
+         * @brief Get the Name of the object
+         *
+         * @return const std::& reference an std::string "OpenGL"
+         */
         std::string const &getName() const override;
 };
 
@@ -34,6 +59,11 @@ std::string const &OpenGL::getName() const
     return name;
 }
 
+/**
+ * @brief Return a new instance of the OpenGL class
+ *
+ * @return OpenGL* A new instance of the OpenGL class
+ */
 extern "C"
 OpenGL *entryPoint()
 {

@@ -11,10 +11,35 @@
 
 class Pacman : public IGameModule {
     public:
+        /**
+         * @brief Construct a new Pacman object
+         *
+         */
         Pacman() {};
+
+        /**
+         * @brief Destroy the Pacman object
+         *
+         */
         ~Pacman() {};
+
+        /**
+         * @brief Initialize the display module
+         *
+         */
         void init() override;
+
+        /**
+         * @brief Stop the display module
+         *
+         */
         void stop() override;
+
+        /**
+         * @brief Get the Name of the object
+         *
+         * @return const std::& reference an std::string "Pacman"
+         */
         std::string const &getGame() const override;
 };
 
@@ -34,6 +59,11 @@ std::string const &Pacman::getGame() const
     return name;
 }
 
+/**
+ * @brief Return a new instance of the Pacman class
+ *
+ * @return Pacman* A new instance of the Pacman class
+ */
 extern "C"
 Pacman *entryPoint()
 {
