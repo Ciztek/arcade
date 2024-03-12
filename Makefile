@@ -32,11 +32,15 @@ debug: ## Compile with debug logs
 
 clean: ## Remove generated objects
 fclean: ## Remove any generated files
+docs_clean: ## Remove generated documentation
+docs_fclean: ## Remove generated documentation and pdf
 
 tests_run: ## Run criterion tests
 cov: ## Run a coverage report
 
 re: ## fclean and recompile
+docs: ## Generate doxygen documentation
+pdf: ## Generate pdf documentation
 help: ## Show this help
 
 # ↓ pretty help
@@ -52,7 +56,7 @@ MODULES := sources config logger utils
 $(foreach m, $(MODULES),$(eval $(call IMPORT, makeincludes/$m)))
 
 # ↓ Auto import rules
-RULES := base compile debug angry unittests
+RULES := base compile debug angry unittests docs
 $(foreach r, $(RULES),$(eval $(call IMPORT, makeincludes/rules/$r)))
 
 # ↓ file & rules guard
