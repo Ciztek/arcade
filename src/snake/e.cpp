@@ -8,6 +8,11 @@
 #include <iostream>
 
 #include "IGameModule.hpp"
+
+/**
+ * @brief Snake game module
+ *
+ */
 class Snake : public IGameModule {
     public:
         /**

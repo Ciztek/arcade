@@ -9,6 +9,10 @@
 
 #include "IDisplayModule.hpp"
 
+/**
+ * @brief Sdl display module
+ *
+ */
 class Sdl : public IDisplayModule {
     public:
         /**

@@ -9,6 +9,10 @@
 
 #include "IGameModule.hpp"
 
+/**
+ * @brief Pacman game module
+ *
+ */
 class Pacman : public IGameModule {
     public:
         /**

@@ -9,6 +9,10 @@
 
 #include "IDisplayModule.hpp"
 
+/**
+ * @brief OpenGL display module
+ *
+ */
 class OpenGL : public IDisplayModule {
     public:
         /**
