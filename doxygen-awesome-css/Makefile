@@ -1,3 +1,10 @@
+##
+## EPITECH PROJECT, 2024
+## arcade
+## File description:
+## Makefile
+##
+
 # SPDX-FileCopyrightText: 2022 Andrea Pappacoda <andrea@pappacoda.it>
 # SPDX-License-Identifier: MIT
 
