@@ -43,5 +43,5 @@ Then you need to add the directory containing the man pages to your MANPATH envi
 you can do it like this:
 
 ```shell
-export MANPATH=$MANPATH:/path/to/the/man/pages
+export MANPATH=$MANPATH:$PWD/docs/man
 ```

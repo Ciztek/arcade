@@ -1,7 +1,9 @@
+name: Github Pages
+
 on:
   push:
     branches:
-      - main
+      - arch
 permissions:
   contents: write
 
@@ -15,8 +17,8 @@ jobs:
         id: ghaction
         uses: AgarwalSaurav/ghaction-doxygen-ghpages@v2.0.0
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           working-directory: .
-          doxyfile-path: Doxyfile
+          doxyfile-path: doc/Doxyfile
           html-output-folder: doc/html
           branch: gh-pages
