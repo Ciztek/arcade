@@ -8,7 +8,7 @@
 CC := g++
 
 CFLAGS := -Wall -Wextra -std=gnu++20
-CFLAGS += -iquote ./includes
+CFLAGS += -iquote ./includes -iquote ./includes/DisplayModules -iquote ./includes/GameModules
 CFLAGS += -fno-gnu-unique
 
 LIB_CFLAGS := -shared -fPIC

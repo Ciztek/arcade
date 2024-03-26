@@ -1,0 +1,9 @@
+XXXXXXXXXXXXXXXXXX
+X P    XX G oooo X
+X                X
+XXXXXXXXXXXXXXXXXX
+
+G = ghost
+P = player
+o = pacgums
+X = wall
