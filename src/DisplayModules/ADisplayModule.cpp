@@ -8,24 +8,16 @@
 #include "ADisplayModule.hpp"
 #include "Map.hpp"
 
-ADisplayModule::ADisplayModule()
-{
-}
+ADisplayModule::ADisplayModule() : _gameBoard(nullptr) {}
 
-ADisplayModule::ADisplayModule(Map *gameBoard) : _gameBoard(gameBoard)
-{
-}
+ADisplayModule::ADisplayModule(Map *gameBoard) : _gameBoard(gameBoard) {}
 
-ADisplayModule::~ADisplayModule()
-{
-}
+ADisplayModule::~ADisplayModule() {}
 
-void ADisplayModule::setAssets(IGameModule *game)
-{
+void ADisplayModule::setAssets(IGameModule *game) {
     _assets = game->getAssets();
 }
 
-void ADisplayModule::setMap(Map *map)
-{
+void ADisplayModule::setMap(Map *map) {
     _gameBoard = map;
 }

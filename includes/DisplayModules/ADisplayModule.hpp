@@ -45,6 +45,9 @@ class ADisplayModule : IDisplayModule {
          * @param map the map representation
          */
         void setMap(Map *map);
+        virtual void display() = 0;
+        virtual char retrieveInput() = 0;
+    
 };
 
 #endif /* !ADISPLAYMODULE_HPP_ */
