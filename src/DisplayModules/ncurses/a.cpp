@@ -20,14 +20,28 @@ class Ncurses : public ADisplayModule {
          * @brief Construct a new Ncurses object
          *
          */
-        Ncurses(Map *gameBoard) : _gameBoard(gameBoard) {};
+        Ncurses(Map *gameBoard) : ADisplayModule(gameBoard) {};
+        Ncurses() : ADisplayModule() {};
 
         /**
          * @brief Destroy the Ncurses object
          *
          */
         ~Ncurses() {};
+        void display() override;
+        char retrieveInput() override;
 };
+
+void Ncurses::display()
+{
+    std::cout << "Ncurses display" << std::endl;
+}
+
+char Ncurses::retrieveInput()
+{
+    std::cout << "Ncurses input" << std::endl;
+    return 'a';
+}
 
 /**
  * @brief Return a new instance of the Ncurses class

@@ -28,6 +28,7 @@
 
             criterion
             python3Packages.gcovr
+            python3Packages.compiledb
             python311
 
             doxygen

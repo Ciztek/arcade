@@ -50,6 +50,7 @@ int main(void)
         iterFiles("./lib", [](const char *path) -> void {
             DLLoader<IDisplayModule> loader(path);
             IDisplayModule *module = loader.getInstance("entryPoint");
+            module->display();
             delete module;
         });
     } catch (const std::runtime_error &e) {

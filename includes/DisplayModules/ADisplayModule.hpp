@@ -31,6 +31,7 @@ class ADisplayModule : IDisplayModule {
          */
         Map *_gameBoard;
     public:
+        ADisplayModule();
         ADisplayModule(Map *gameBoard);
         ~ADisplayModule();
         /**
@@ -39,6 +40,11 @@ class ADisplayModule : IDisplayModule {
          * @param game where the assets are stored
          */
         void setAssets(IGameModule *game);
+        /**
+         * @brief set the actual state of the map
+         * @param map the map representation
+         */
+        void setMap(Map *map);
 };
 
 #endif /* !ADISPLAYMODULE_HPP_ */
