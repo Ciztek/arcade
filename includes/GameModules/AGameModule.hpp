@@ -14,11 +14,13 @@
     #include "Map.hpp"
     #include "IGameModule.hpp"
 
+typedef std::map<std::string, std::string> AssetMap;
+
 class AGameModule : public IGameModule {
     private:
     protected:
         Map *_gameBoard;
-        std::map<std::string, std::string> _assets;
+        AssetMap _assets;
     public:
         /**
          * @brief Construct a new AGameModule object
@@ -26,15 +28,12 @@ class AGameModule : public IGameModule {
          * @param gameBoard the map of the game
          */
         AGameModule(Map *gameBoard);
+        AGameModule(AssetMap assets);
+        AGameModule(Map *gameBoard, AssetMap assets);
+        AGameModule();
+
         ~AGameModule();
 
-        void updateGame() final;
-        /**
-         * @brief 
-         * 
-         * @param input char representing the key pressed by the user
-         */
-        void handleInput(char input) final;
         [[nodiscard]] std::map<std::string, std::string> getAssets() const final;
 };
 

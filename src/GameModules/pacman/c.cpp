@@ -7,60 +7,47 @@
 
 #include <iostream>
 
-#include "IGameModule.hpp"
+#include "AGameModule.hpp"
+#include "Map.hpp"
 
+AssetMap ASSETS = {
+    {"pacman", "./assets/pacman/pacman"},
+    {"ghost", "./assets/pacman/ghost"},
+    {"wall", "./assets/pacman/wall"},
+    {"fruit", "./assets/pacman/fruit"},
+    {"empty", "./assets/pacman/empty"},
+    {"player", "./assets/pacman/player"},
+};
 /**
  * @brief Pacman game module
  *
  */
-class Pacman : public IGameModule {
+class Pacman : public AGameModule {
     public:
         /**
          * @brief Construct a new Pacman object
          *
          */
         Pacman() {};
+        Pacman(Map *gameBoard) : AGameModule(gameBoard, ASSETS) {};
 
         /**
          * @brief Destroy the Pacman object
          *
          */
         ~Pacman() {};
-
-        /**
-         * @brief Initialize the display module
-         *
-         */
-        void init() override;
-
-        /**
-         * @brief Stop the display module
-         *
-         */
-        void stop() override;
-
-        /**
-         * @brief Get the Name of the object
-         *
-         * @return const std::& reference an std::string "Pacman"
-         */
-        std::string const &getGame() const override;
+        void updateGame() override;
+        void handleInput(char) override;
 };
 
-void Pacman::init()
+void Pacman::updateGame()
 {
-    std::cout << "[Pacman] Init Pacman library..." << '\n';
+    std::cout << "Pacman update" << std::endl;
 }
 
-void Pacman::stop()
+void Pacman::handleInput(char input)
 {
-    std::cout << "[Pacman] Stop Pacman library..." << '\n';
-}
-
-std::string const &Pacman::getGame() const
-{
-    static const std::string name = "Pacman";
-    return name;
+    std::cout << "Pacman input: " << input << std::endl;
 }
 
 /**
