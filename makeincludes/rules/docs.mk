@@ -6,13 +6,13 @@
 ##
 
 docs: Doxyfile
-	doxygen Doxyfile
+	doxygen $^
 
 .PHONY: docs
 
 pdf: docs
 	$(MAKE) -C docs/latex
-	@ln -sf docs/latex/refman.pdf docs.pdf
+	@ ln -sf docs/latex/refman.pdf docs.pdf
 
 .PHONY: pdf
 

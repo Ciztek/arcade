@@ -8,19 +8,24 @@
 VPATH := src
 SRC := main.cpp
 
-VPATH += src/ncurses
-NCURSES_SRC := a.cpp
+VPATH += src/DisplayModules
 
-VPATH += src/opengl
-OPENGL_SRC := b.cpp
+VPATH += src/DisplayModules/ncurses
+NCURSES_SRC := ADisplayModule.cpp
+NCURSES_SRC += a.cpp
 
-VPATH += src/pacman
+VPATH += src/DisplayModules/opengl
+OPENGL_SRC := ADisplayModule.cpp
+OPENGL_SRC += b.cpp
+
+VPATH += src/GameModules/pacman
 PAC_SRC := c.cpp
 
-VPATH += src/sdl
-SDL_SRC := d.cpp
+VPATH += src/DisplayModules/sdl
+SDL_SRC := ADisplayModule.cpp
+SDL_SRC += d.cpp
 
-VPATH += src/snake
+VPATH += src/GameModules/snake
 SNAKE_SRC := e.cpp
 
 VPATH += tests

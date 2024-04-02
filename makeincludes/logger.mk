@@ -46,5 +46,5 @@ CURRENT_TIME_MS = $(shell date +%s%3N)
 TIME = $(shell expr $(call CURRENT_TIME_MS) - $(START_TIME))
 
 HEADER := ":p"
-LOG = @ echo -e $(call COLORIZE,$(2) ~$(TIME_BOX) $(HEADER)~ $(1)~)
+LOG = @ echo $(call COLORIZE,$(2) ~$(TIME_BOX) $(HEADER)~ $(1)~)
 TIME_BOX = "[ :b"$(call TIME)"~\t]"

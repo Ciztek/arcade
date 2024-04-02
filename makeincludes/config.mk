@@ -7,9 +7,13 @@
 
 CC := g++
 
+INC_DIR := includes
+INC_DIR += includes/DisplayModules
+INC_DIR += includes/GameModules
+
 CFLAGS := -Wall -Wextra -std=gnu++20
-CFLAGS += -iquote ./includes -iquote ./includes/DisplayModules -iquote ./includes/GameModules
-CFLAGS += -fno-gnu-unique
+CFLAGS += $(addprefix -iquote, $(INC_DIR))
+#CFLAGS += -fno-gnu-unique
 
 LIB_CFLAGS := -shared -fPIC
 LIB_CFLAGS += $(CFLAGS)
