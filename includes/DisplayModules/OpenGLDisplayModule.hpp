@@ -13,24 +13,42 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
-class OpenGLDisplayModule : public ADisplayModule {
-public:
-    OpenGLDisplayModule();
-    OpenGLDisplayModule(Map* gameBoard);
-    virtual ~OpenGLDisplayModule();
+class OpenGL : public ADisplayModule {
+    public:
+        /**
+         * @brief Construct a new OpenGL object
+         *
+         * @param gameBoard
+         */
+        OpenGL(Map *gameBoard) : ADisplayModule(gameBoard) {
+            //create window
+            if (!glfwInit())
+                exit(EXIT_FAILURE);
+            window = glfwCreateWindow(640, 480, "Simple example", NULL, NULL);
+            if (!window) {
+                glfwTerminate();
+                exit(EXIT_FAILURE);
+            }
+            glfwMakeContextCurrent(window);
+            glewInit();
+        };
+        OpenGL() : ADisplayModule() {};
 
-    // Implement pure virtual methods from IDisplayModule
-    void initialize();
-    void render();
-    void processInput();
-    void cleanup();
+        /**
+         * @brief Destroy the OpenGL object
+         *
+         */
+        ~OpenGL() {
+            glfwTerminate();
+        };
+        void draw(std::string tileType, float x, float y);
+        void display() override;
+        char retrieveInput() override;
 
-    // Implement pure virtual methods from ADisplayModule
-    void display() override;
-    char retrieveInput() override;
+    private:
+        const float TILE_SIZE = 1.0f;
+        GLFWwindow* window;
 
-private:
-    GLFWwindow* window;
 };
 
 #endif // OPENGL_DISPLAY_MODULE_HPP_
