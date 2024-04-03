@@ -2,65 +2,44 @@
 ** EPITECH PROJECT, 2024
 ** arcade
 ** File description:
-** b
+** d
 */
 
 #include <iostream>
 
-#include "IDisplayModule.hpp"
+#include "ADisplayModule.hpp"
 
 /**
  * @brief Sdl display module
  *
  */
-class Sdl : public IDisplayModule {
+class Sdl : public ADisplayModule {
     public:
         /**
-         * @brief Construct a new Sld object
+         * @brief Construct a new Sdl object
          *
          */
-        Sdl() {};
+        Sdl(Map *gameBoard) : ADisplayModule(gameBoard) {};
+        Sdl() : ADisplayModule() {};
 
         /**
-         * @brief Destroy the Sld object
+         * @brief Destroy the Sdl object
          *
          */
         ~Sdl() {};
-
-        /**
-         * @brief Initialize the display module
-         *
-         */
-        void init() override;
-
-        /**
-         * @brief Stop the display module
-         *
-         */
-        void stop() override;
-
-        /**
-         * @brief Get the Name of the object
-         *
-         * @return const std::& reference an std::string "Sdl"
-         */
-        std::string const &getName() const override;
+        void display() override;
+        char retrieveInput() override;
 };
 
-void Sdl::init()
+void Sdl::display()
 {
-    std::cout << "[Sdl] Init Sdl library..." << '\n';
+    std::cout << "Sdl display" << std::endl;
 }
 
-void Sdl::stop()
+char Sdl::retrieveInput()
 {
-    std::cout << "[Sdl] Stop Sdl library..." << '\n';
-}
-
-std::string const &Sdl::getName() const
-{
-    static const std::string name = "Sdl";
-    return name;
+    std::cout << "Sdl input" << std::endl;
+    return 'a';
 }
 
 /**

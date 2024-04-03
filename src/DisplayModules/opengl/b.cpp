@@ -7,60 +7,39 @@
 
 #include <iostream>
 
-#include "IDisplayModule.hpp"
+#include "ADisplayModule.hpp"
 
 /**
  * @brief OpenGL display module
  *
  */
-class OpenGL : public IDisplayModule {
+class OpenGL : public ADisplayModule {
     public:
         /**
          * @brief Construct a new OpenGL object
          *
          */
-        OpenGL() {};
+        OpenGL(Map *gameBoard) : ADisplayModule(gameBoard) {};
+        OpenGL() : ADisplayModule() {};
 
         /**
          * @brief Destroy the OpenGL object
          *
          */
         ~OpenGL() {};
-
-        /**
-         * @brief Initialize the display module
-         *
-         */
-        void init() override;
-
-        /**
-         * @brief Stop the display module
-         *
-         */
-        void stop() override;
-
-        /**
-         * @brief Get the Name of the object
-         *
-         * @return const std::& reference an std::string "OpenGL"
-         */
-        std::string const &getName() const override;
+        void display() override;
+        char retrieveInput() override;
 };
 
-void OpenGL::init()
+void OpenGL::display()
 {
-    std::cout << "[OpenGl] Init OpenGL library..." << '\n';
+    std::cout << "OpenGL display" << std::endl;
 }
 
-void OpenGL::stop()
+char OpenGL::retrieveInput()
 {
-    std::cout << "[OpenGl] Stop OpenGL library..." << '\n';
-}
-
-std::string const &OpenGL::getName() const
-{
-    static const std::string name = "OpenGL";
-    return name;
+    std::cout << "OpenGL input" << std::endl;
+    return 'a';
 }
 
 /**

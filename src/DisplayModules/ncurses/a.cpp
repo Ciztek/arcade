@@ -8,7 +8,6 @@
 #include <iostream>
 
 #include "ADisplayModule.hpp"
-#include "IDisplayModule.hpp"
 
 /**
  * @brief Ncurses display module

@@ -7,60 +7,48 @@
 
 #include <iostream>
 
-#include "IGameModule.hpp"
+#include "AGameModule.hpp"
+#include "Map.hpp"
+
+AssetMap ASSETS = {
+    {"snake", "./assets/snake/snake"},
+    {"ghost", "./assets/snake/ghost"},
+    {"wall", "./assets/snake/wall"},
+    {"fruit", "./assets/snake/fruit"},
+    {"empty", "./assets/snake/empty"},
+    {"player", "./assets/snake/player"},
+};
 
 /**
  * @brief Snake game module
  *
  */
-class Snake : public IGameModule {
+class Snake : public AGameModule {
     public:
         /**
          * @brief Construct a new Snake object
          *
          */
         Snake() {};
+        Snake(Map *gameBoard) : AGameModule(gameBoard, ASSETS) {};
 
         /**
          * @brief Destroy the Snake object
          *
          */
         ~Snake() {};
-
-        /**
-         * @brief Initialize the display module
-         *
-         */
-        void init() override;
-
-        /**
-         * @brief Stop the display module
-         *
-         */
-        void stop() override;
-
-        /**
-         * @brief Get the Name of the object
-         *
-         * @return const std::& reference an std::string "Snake"
-         */
-        std::string const &getGame() const override;
+        void updateGame() override;
+        void handleInput(char) override;
 };
 
-void Snake::init()
+void Snake::updateGame()
 {
-    std::cout << "[Snake] Init Snake library..." << '\n';
+    std::cout << "Snake update" << std::endl;
 }
 
-void Snake::stop()
+void Snake::handleInput(char input)
 {
-    std::cout << "[Snake] Stop Snake library..." << '\n';
-}
-
-std::string const &Snake::getGame() const
-{
-    static const std::string name = "Snake";
-    return name;
+    std::cout << "Snake input: " << input << std::endl;
 }
 
 /**
