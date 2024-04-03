@@ -23,6 +23,8 @@
             ncurses
             SDL2
             glfw
+            glew
+            glm
 
             valgrind
 
