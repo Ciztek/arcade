@@ -11,6 +11,9 @@
 #include <dlfcn.h>
 #include <stdexcept>
 
+#include "IGameModule.hpp"
+#include "IDisplayModule.hpp"
+
 /**
  * @brief Class to load a dynamic library and get the class instance defined in it
  *
@@ -49,9 +52,13 @@ class DLLoader {
         {
             auto entryPoint = reinterpret_cast<T *(*)()>(dlsym(_handle, symbol));
             if (entryPoint == nullptr)
-                throw std::runtime_error(dlerror());
-            return entryPoint();
+                return nullptr;
+            T *instance = entryPoint();
+            if (dynamic_cast<T*>(instance) == nullptr)
+                throw std::runtime_error("Invalid type returned from entryPoint");
+            return instance;
         }
+
 
     private:
         /**

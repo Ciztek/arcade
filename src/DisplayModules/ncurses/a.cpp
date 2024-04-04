@@ -48,7 +48,7 @@ char Ncurses::retrieveInput()
  * @return Ncurses* A new instance of the Ncurses class
  */
 extern "C"
-Ncurses *entryPoint()
+Ncurses *graphicalEntryPoint()
 {
     return new Ncurses();
 }

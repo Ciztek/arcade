@@ -77,7 +77,7 @@ char Sdl::retrieveInput()
  * @return Sdl* A new instance of the Sdl class
  */
 extern "C"
-Sdl *GraphicalentryPoint()
+Sdl *graphicalEntryPoint()
 {
     return new Sdl();
 }

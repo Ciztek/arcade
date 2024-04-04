@@ -102,7 +102,8 @@ char OpenGL::retrieveInput()
  * @return OpenGL* A new instance of the OpenGL class
  */
 extern "C"
-OpenGL *GraphicalentryPoint()
+
+OpenGL *graphicalEntryPoint()
 {
     return new OpenGL();
 }

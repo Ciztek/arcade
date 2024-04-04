@@ -7,9 +7,11 @@
 
 #include <dirent.h>
 #include <dlfcn.h>
+#include <functional>
 #include <iostream>
 #include <stdexcept>
 #include <sys/types.h>
+#include <vector>
 
 #include "DLLoader.hpp"
 #include "IDisplayModule.hpp"
@@ -21,7 +23,7 @@
  * @param path Path to the directory within you will iterate
  * @param cb Callback function to apply to each file that take the path as parameter and return void
  */
-void iterFiles(const char *path, void (*cb)(const char *))
+void iterFiles(const char *path, std::function<void(const char *)> cb)
 {
     DIR *dir = opendir(path);
     struct dirent *entry;
@@ -46,16 +48,31 @@ void iterFiles(const char *path, void (*cb)(const char *))
  */
 int main(void)
 {
+    std::vector<IGameModule *> games;
+    std::vector<IDisplayModule *> displays;
+
     try {
-        iterFiles("./lib", [](const char *path) -> void {
+        iterFiles("./lib", [&games](const char *path) -> void {
+            DLLoader<IGameModule> loader(path);
+            IGameModule *game = loader.getInstance("gameEntryPoint");
+            if (game != nullptr)
+                games.push_back(game);
+        });
+        iterFiles("./lib", [&displays](const char *path) -> void {
             DLLoader<IDisplayModule> loader(path);
-            IDisplayModule *module = loader.getInstance("entryPoint");
-            module->display();
-            delete module;
+            IDisplayModule *display = loader.getInstance("displayEntryPoint");
+            if (display != nullptr)
+                displays.push_back(display);
         });
     } catch (const std::runtime_error &e) {
         std::cerr << e.what() << '\n';
         return 84;
+    }
+    for (auto &game: games) {
+        game->updateGame();
+    }
+    for (auto &display: displays) {
+        display->display();
     }
     return 0;
 }

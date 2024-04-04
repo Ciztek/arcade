@@ -57,7 +57,7 @@ void Snake::handleInput(char input)
  * @return Snake* A new instance of the Snake class
  */
 extern "C"
-Snake *entryPoint()
+Snake *gameEntryPoint()
 {
     return new Snake();
 }

@@ -25,7 +25,7 @@ SDL_SRC += d.cpp
 VPATH += src/GameModules
 VPATH += src/GameModules/snake
 SNAKE_SRC := AGameModule.cpp
-SNAKE_SRC := e.cpp
+SNAKE_SRC += e.cpp
 
 VPATH += src/GameModules/pacman
 PAC_SRC := AGameModule.cpp

@@ -6,6 +6,7 @@
 */
 
 #include <iostream>
+#include <memory>
 
 #include "AGameModule.hpp"
 #include "Map.hpp"
@@ -56,7 +57,7 @@ void Pacman::handleInput(char input)
  * @return Pacman* A new instance of the Pacman class
  */
 extern "C"
-Pacman *entryPoint()
+Pacman *gameEntryPoint()
 {
     return new Pacman();
 }
