@@ -24,7 +24,7 @@ class OpenGL : public ADisplayModule {
             //create window
             if (!glfwInit())
                 exit(EXIT_FAILURE);
-            window = glfwCreateWindow(640, 480, "Simple example", NULL, NULL);
+            window = glfwCreateWindow(640, 480, "Arcade", NULL, NULL);
             if (!window) {
                 glfwTerminate();
                 exit(EXIT_FAILURE);

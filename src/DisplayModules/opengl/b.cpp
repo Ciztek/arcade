@@ -6,7 +6,6 @@
 */
 
 #include <cstddef>
-#include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -38,6 +37,10 @@ void OpenGL::draw(std::string tileType, float x, float y) {
 
     // Draw a square at position (x, y) with the constant size
     glRectf(x, y, x + TILE_SIZE, y + TILE_SIZE);
+
+    // Update the window
+    glfwSwapBuffers(window);
+    glfwPollEvents();
 }
 
 /**
@@ -99,7 +102,7 @@ char OpenGL::retrieveInput()
  * @return OpenGL* A new instance of the OpenGL class
  */
 extern "C"
-OpenGL *entryPoint()
+OpenGL *GraphicalentryPoint()
 {
     return new OpenGL();
 }
